@@ -11,7 +11,7 @@ import Finished from "./Finished";
 import Footer from "./Footer";
 import Timer from "./Timer";
 
-const SECS_PER_QUESTION = 1;
+const SECS_PER_QUESTION = 30;
 
 const initialState = {
   questions: [],
@@ -109,7 +109,7 @@ export default function App() {
   );
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
+    fetch("https://questions-dca1.onrender.com/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
